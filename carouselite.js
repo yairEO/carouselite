@@ -1,7 +1,7 @@
 /**
 * Carouselite - basic jquery plugin by Yair Even Or
 * DEC 2013
-* http://dropthebit.com
+* https://github.com/yairEO/carouselite
 * Version 1.0.0
 */
 (function(){
