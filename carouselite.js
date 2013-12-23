@@ -1,7 +1,7 @@
 /**
-* Carousel - basic jquery plugin by Yair Even Or
+* Carouselite - basic jquery plugin by Yair Even Or
 * DEC 2013
-* http://dtopthebit.com
+* http://dropthebit.com
 * Version 1.0.0
 */
 (function(){
@@ -49,7 +49,7 @@
 
         calcs : function(){
             var wrapper = this.wrapper[0];
-            if( this.settings.scroll == 'V' ){
+            if( this.settings.orientation == 'V' ){
                 this.maxScroll = wrapper.scrollHeight;
                 this.NumOfpages = this.maxScroll / wrapper.clientHeight;
             }
@@ -82,7 +82,7 @@
 			else if( this.pageIndex == this.NumOfpages )
 				this.obj.addClass('lastPage');
 
-            if( this.settings.scroll == 'H' )
+            if( this.settings.orientation == 'H' )
                 this.wrapper.css('text-indent', -this.pageIndex*100 + '%');
             else
                 return false // here goes code for vertical movement here
@@ -94,21 +94,18 @@
 
     var defaults = {
         loop            : true,
-        scroll          : 'H',            // H or V
+        orientation     : 'H',            // H or V
         autoplay        : 0,             // in milliseconds
         pagination      : true,          // show bullets and track current page
     };
 
-    $.fn.carousel = function(settings){
+    $.fn.carouselite = function(settings){
         return this.each(function(){
             var $obj = $(this),
                 $settings = $.extend( {}, defaults, settings || {} );
-                carousel = $obj.data("carousel") || new Carousel($settings, $obj),
+                carousel = $obj.data("carouselite") || new Carousel($settings, $obj),
 
-            $obj.data("carousel", carousel );
+            $obj.data("carouselite", carousel );
         });
     };
-
-    // bind carousel elements
-    $('.carousel').carousel();
 })();
